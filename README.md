@@ -25,6 +25,7 @@ We negotiated the prices with our cleaning partner :
 - a last_checkout costs 5€ per room
 
 Here is  the input json
+```
 {
   "listings": [
     { "id": 1, "num_rooms": 2 },
@@ -43,10 +44,12 @@ Here is  the input json
     { "id": 3, "listing_id": 2, "start_date": "2016-10-15", "end_date": "2016-10-18" }
   ]
 }
+```
 
 We need to generate a JSON of all the mission and their mission_type, date, and price
 
 The output JSON should resemble this
+```
 {
   "missions": [
     {:listing_id=>1, :mission_type=>"first_checkin", :date=>"2016-10-10", :price=>20},
@@ -59,4 +62,5 @@ The output JSON should resemble this
     {:listing_id=>2, :mission_type=>"checkout_checkin", :date=>"2016-10-18", :price=>10}
   ]
 }
+```
 Go slowly, and write code that could be easily extensible and clean.
