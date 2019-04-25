@@ -45,8 +45,15 @@ Here is  the input json
   ]
 }
 ```
+Objective :
+You need to create a Rails Application using Active records which have :
+ - Service that generates missions from Listing/Booking/Reservation models
+ - JSON Api :
+   - CRUD on listing / bookings / reservations
+   - Index endpoints to revrieves misisons created
+ - Script to fill the database with this JSON
 
-We need to generate a JSON of all the mission and their mission_type, date, and price
+ Note : no authentication is required
 
 The output JSON should resemble this
 ```
