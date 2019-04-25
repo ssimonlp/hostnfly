@@ -51,7 +51,7 @@ You need to create a Rails Application using Active records which have :
  - JSON Api :
    - CRUD on listing / bookings / reservations
    - Index endpoints to revrieves misisons created
- - Script to fill the database with this JSON
+ - Script to fill the database from the backend_test.rb
 
  Note : no authentication is required
 
