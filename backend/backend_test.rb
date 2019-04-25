@@ -16,9 +16,3 @@ input = {
     { "id": 3, "listing_id": 2, "start_date": "2016-10-15", "end_date": "2016-10-18" }
   ]
 }
-
-def handle_cleanings(input)
-  # Write your code here
-end
-
-p handle_cleanings(input)
