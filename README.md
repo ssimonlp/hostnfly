@@ -6,23 +6,24 @@
 # Backend test
 
 We are building a listing rentals management company; let’s call it HostnFly ;)
-4 main object populate our app:
-- listings: apartments of our clients
-- bookings: periods of time during which our clients leave us their apartment
-- reservations: periods of time during which a guest rents one of our apartments
-- mission: cleaning an apartment
 
-bookings, reservations and missions all BELONG to listing (they all have a listing_id) but are not otherwise directly related to one another.
+4 main objects populate our app:
+- `listings`: apartments of our clients
+- `bookings`: periods of time during which our clients leave us their apartment
+- `reservations`: periods of time during which a guest rents one of our apartments
+- `mission`: cleaning an apartment
+
+`bookings`, `reservations` and `missions` all BELONG to `listing` (they all have a `listing_id`) but are not otherwise directly related to one another.
 
 Here is our plan to clean the apartment:
-- We create a cleaning mission called ‘first_checkin’ at the beginning of the booking
-- We create a cleaning mission called ‘last_checkout’ before the owner comes back
-- We create a cleaning mission called ‘checkout_checkin’ at the end of each reservation UNLESS there is already a last_checkout at the same date
+- We create a cleaning mission called `first_checkin` at the beginning of the booking
+- We create a cleaning mission called `last_checkout` before the owner comes back
+- We create a cleaning mission called `checkout_checkin` at the end of each reservation UNLESS there is already a last_checkout at the same date
 
 We negotiated the prices with our cleaning partner:
 - a first checkin costs 10€ per room
 - a checkout checkin costs 10€ per room
-- a last_checkout costs 5€ per room
+- a last checkout costs 5€ per room
 
 Here is the input json
 ```
@@ -45,11 +46,13 @@ Here is the input json
   ]
 }
 ```
-Goal:
+
+## Goal
+
 You need to create a Rails Application using Active records which has:
  - Service that generates missions from Listing/Booking/Reservation models
  - JSON API:
-   - CRUD on listing / bookings / reservations
+   - CRUD on `listing` / `bookings` / `reservations`
    - Index endpoints to revrieve missions created
  - Script to fill the database from the backend_test.rb
 
