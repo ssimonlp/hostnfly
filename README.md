@@ -20,6 +20,8 @@ Here is our plan to clean the apartment:
 - We create a cleaning mission called `last_checkout` before the owner comes back
 - We create a cleaning mission called `checkout_checkin` at the end of each reservation UNLESS there is already a last_checkout at the same date
 
+Reservation and Bookings could be cancelled, in this case we should not do missions related.
+
 We negotiated the prices with our cleaning partner:
 - a first checkin costs 10€ per room
 - a checkout checkin costs 10€ per room
@@ -40,9 +42,9 @@ Here is the input json
   ],
   "reservations": [
     { "id": 1, "listing_id": 1, "start_date": "2016-10-11", "end_date": "2016-10-13" },
-    { "id": 1, "listing_id": 1, "start_date": "2016-10-13", "end_date": "2016-10-15" },
-    { "id": 1, "listing_id": 1, "start_date": "2016-10-16", "end_date": "2016-10-20" },
-    { "id": 3, "listing_id": 2, "start_date": "2016-10-15", "end_date": "2016-10-18" }
+    { "id": 2, "listing_id": 1, "start_date": "2016-10-13", "end_date": "2016-10-15" },
+    { "id": 3, "listing_id": 1, "start_date": "2016-10-16", "end_date": "2016-10-20" },
+    { "id": 4, "listing_id": 2, "start_date": "2016-10-15", "end_date": "2016-10-18" }
   ]
 }
 ```
@@ -56,7 +58,9 @@ You need to create a Rails Application using Active records which has:
    - Index endpoints to revrieve missions created
  - Script to fill the database from the backend_test.rb
 
- Note: no authentication is required
+Note: no authentication is required
+
+If you think about useful business rules you can add some.
 
 The output JSON should resemble this
 ```
