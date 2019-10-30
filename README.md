@@ -1,7 +1,8 @@
 # Guidelines
-1. Clone this repo (do not fork it)
+1. Clone this repo (do not fork it) 
+2. Make a new branch
 2. Commit your code as you do it
-3. Once you are done, contact us!
+3. Once you are done, make a pull request and contact us!
 
 # Backend test
 
@@ -15,10 +16,10 @@ We are building a listing rentals management company; let’s call it HostnFly ;
 
 `bookings`, `reservations` and `missions` all BELONG to `listing` (they all have a `listing_id`) but are not otherwise directly related to one another.
 
-Here is our plan to clean the apartment:
-- We create a cleaning mission called `first_checkin` at the beginning of the booking
-- We create a cleaning mission called `last_checkout` before the owner comes back
-- We create a cleaning mission called `checkout_checkin` at the end of each reservation UNLESS there is already a last_checkout at the same date
+Here is our plan to clean the apartment, at any time:
+- We should have a cleaning mission called `first_checkin` at the beginning of the booking
+- We should have  a cleaning mission called `last_checkout` before the owner comes back
+- We should have  a cleaning mission called `checkout_checkin` at the end of each reservation UNLESS there is already a last_checkout at the same date
 
 Reservation and Bookings could be cancelled, in this case we should not do missions related.
 
