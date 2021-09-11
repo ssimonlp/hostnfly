@@ -10,9 +10,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2021_09_11_142944) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "is_active", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["listing_id"], name: "index_bookings_on_listing_id"
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.integer "num_rooms"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "missions", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.date "date"
+    t.string "type", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["listing_id"], name: "index_missions_on_listing_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.date "start_date"
+    t.date "end_date"
+    t.boolean "is_active", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["listing_id"], name: "index_reservations_on_listing_id"
+  end
+
+  add_foreign_key "bookings", "listings"
+  add_foreign_key "missions", "listings"
+  add_foreign_key "reservations", "listings"
 end
