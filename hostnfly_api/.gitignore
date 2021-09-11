@@ -28,4 +28,3 @@ u# See https://help.github.com/articles/ignoring-files for more about ignoring f
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/.rubocop.yml
-/config/database.yml
