@@ -9,10 +9,9 @@ class Listing < ApplicationRecord
     association.has_many :first_checkins, class_name: 'Missions::FirstCheckin'
     association.has_many :last_checkouts, class_name: 'Missions::LastCheckout'
     association.has_many :checkout_checkins, class_name: 'Missions::CheckoutCheckin'
+    association.has_many :active_bookings, -> { where(is_active: true) }, class_name: 'Booking'
+    association.has_many :active_reservations, -> { where(is_active: true) }, class_name: 'Reservation'
   end
-
-  scope :active_bookings, -> { bookings.where(is_active: true) }
-  scope :active_reservations, -> { reservations.where(is_active: true) }
 
   validates :num_rooms, presence: true
 

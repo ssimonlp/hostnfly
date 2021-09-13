@@ -11,7 +11,7 @@ class Reservation < ApplicationRecord
 
   def in_booking_range?
     listing.booking_slots.map do |slot|
-      (slot.start_date..slot.end_date).include?(start_date..end_date)
+      (slot.first..slot.last).include?(start_date..end_date)
     end.any?
   end
 end
