@@ -6,13 +6,13 @@ module Missions
     # that terms are created only once and at first error an ActiveRecord::Rollback
     # is raised
     around :lockable, with: 'lockable'
-    
+
     tee :params
     step :generate_booking_missions
     step :generate_reservation_missions
 
     def params(input)
-      @listing = input.fetch(:listing)
+      @listing = input.fetch(:resource)
     end
 
     def generate_booking_missions(input)
