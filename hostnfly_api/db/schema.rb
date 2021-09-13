@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2021_09_11_142944) do
     t.bigint "listing_id", null: false
     t.date "start_date"
     t.date "end_date"
-    t.boolean "is_active", default: false
+    t.boolean "is_active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["listing_id"], name: "index_bookings_on_listing_id"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2021_09_11_142944) do
     t.bigint "listing_id", null: false
     t.date "start_date"
     t.date "end_date"
-    t.boolean "is_active", default: false
+    t.boolean "is_active", default: true
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["listing_id"], name: "index_reservations_on_listing_id"
