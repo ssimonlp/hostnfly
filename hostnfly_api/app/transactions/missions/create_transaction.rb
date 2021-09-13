@@ -6,7 +6,7 @@ module Missions
     # that terms are created only once and at first error an ActiveRecord::Rollback
     # is raised
     around :lockable, with: 'lockable'
-
+    
     tee :params
     step :generate_booking_missions
     step :generate_reservation_missions
@@ -17,11 +17,9 @@ module Missions
 
     def generate_booking_missions(input)
       @listing.active_bookings.find_each do |booking|
-        checkin = @listing.first_checkins.new(date: booking.start_date)
-        checkout = @listing.last_checkouts.new(date: booking.end_date)
+        @listing.first_checkins.create!(date: booking.start_date)
+        @listing.last_checkouts.create!(date: booking.end_date)
 
-        checkin.extend(DateValidator).save!
-        checkout.extend(DateValidator).save!
       rescue ActiveRecord::RecordInvalid => e
         Failure(input.merge(error: e))
       end
@@ -32,8 +30,7 @@ module Missions
       @listing.active_reservations.find_each do |reservation|
         next if @listing.last_checkouts.where(date: reservation.end_date).any?
 
-        checkin_checkout = @listing.checkout_checkins.new(date: reservation.end_date)
-        checkin_checkout.extend(DateValidator).save!
+        @listing.checkout_checkins.create!(date: reservation.end_date)
 
       rescue ActiveRecord::RecordInvalid => e
         Failure(input.merge(error: e))
