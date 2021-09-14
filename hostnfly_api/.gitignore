@@ -28,3 +28,9 @@ u# See https://help.github.com/articles/ignoring-files for more about ignoring f
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 /config/.rubocop.yml
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity

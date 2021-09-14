@@ -44,7 +44,7 @@ RSpec.describe Missions::CreateTransaction do
     end
   end
 
-  describe 'when validations fails' do
+  describe 'when validations fail' do
     let(:listing) { create(:listing) }
     let(:booking) do
       create(
