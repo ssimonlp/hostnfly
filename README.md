@@ -30,3 +30,12 @@ yarn start
 ```
 rspec
 ```
+
+# Code reading
+Important files
+
+- `app/controllers`
+- `app/models`
+- `app/transactions`
+- `client/`
+- `spec/`
