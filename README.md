@@ -7,9 +7,9 @@ Here are some instruction to seed the db and lauch the app.
 cd hostnfly_api
 ```
 
-- Populate teh DB with the following command:
+- Populate the DB with the following command:
 ```
-rails db:seed
+rails db:create db:migrate db:seed
 ```
 
 - Launch a Rails serveron port 3001:
@@ -28,7 +28,7 @@ yarn start
 
 - Lauch the specs suite :
 ```
-rspec
+rspec spec/controllers/ spec/transactions/
 ```
 
 # Code reading
